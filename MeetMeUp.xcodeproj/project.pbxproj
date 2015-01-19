@@ -14,6 +14,7 @@
 		23FEDB471A6DA9F4008EE28D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23FEDB461A6DA9F4008EE28D /* Images.xcassets */; };
 		23FEDB4A1A6DA9F4008EE28D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23FEDB481A6DA9F4008EE28D /* LaunchScreen.xib */; };
 		23FEDB561A6DA9F4008EE28D /* MeetMeUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FEDB551A6DA9F4008EE28D /* MeetMeUpTests.m */; };
+		23FEDB611A6DB8BA008EE28D /* MeetUpEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FEDB601A6DB8BA008EE28D /* MeetUpEvent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		23FEDB4F1A6DA9F4008EE28D /* MeetMeUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetMeUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FEDB541A6DA9F4008EE28D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23FEDB551A6DA9F4008EE28D /* MeetMeUpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetMeUpTests.m; sourceTree = "<group>"; };
+		23FEDB5F1A6DB8BA008EE28D /* MeetUpEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetUpEvent.h; sourceTree = "<group>"; };
+		23FEDB601A6DB8BA008EE28D /* MeetUpEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetUpEvent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				23FEDB3E1A6DA9F4008EE28D /* AppDelegate.m */,
 				23FEDB401A6DA9F4008EE28D /* ViewController.h */,
 				23FEDB411A6DA9F4008EE28D /* ViewController.m */,
+				23FEDB5F1A6DB8BA008EE28D /* MeetUpEvent.h */,
+				23FEDB601A6DB8BA008EE28D /* MeetUpEvent.m */,
 				23FEDB431A6DA9F4008EE28D /* Main.storyboard */,
 				23FEDB461A6DA9F4008EE28D /* Images.xcassets */,
 				23FEDB481A6DA9F4008EE28D /* LaunchScreen.xib */,
@@ -221,6 +226,7 @@
 			files = (
 				23FEDB421A6DA9F4008EE28D /* ViewController.m in Sources */,
 				23FEDB3F1A6DA9F4008EE28D /* AppDelegate.m in Sources */,
+				23FEDB611A6DB8BA008EE28D /* MeetUpEvent.m in Sources */,
 				23FEDB3C1A6DA9F4008EE28D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
