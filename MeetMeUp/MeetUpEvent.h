@@ -15,5 +15,6 @@
 @property NSString *rsvpCount;
 @property NSString *hostingInfo;
 @property NSString *eventDescription;
+@property NSString *url;
 
 @end

@@ -57,10 +57,14 @@
              NSString *groupString = [groupDict objectForKey:@"name"];
              newEvent.hostingInfo = groupString;
 
+             NSString *descriptionString = [eventDict objectForKey:@"description"];
+             newEvent.eventDescription = descriptionString;
+
+             NSString *urlString = [eventDict objectForKey:@"event_url"];
+             newEvent.url = urlString;
+
              [self.eventsArray addObject:newEvent];
-
          }
-
          [self.tableView reloadData]; //reloadData to reload all tableView
      }];
     
