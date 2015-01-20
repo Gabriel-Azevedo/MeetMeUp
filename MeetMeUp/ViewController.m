@@ -10,12 +10,14 @@
 #import "MeetUpEvent.h"
 #import "DetailViewController.h"
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property NSArray *resultArray;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSIndexPath *selectedIndexPath;
 @property NSMutableArray *eventsArray;
+@property NSString *urlString;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchbBar;
 
 @end
 
@@ -24,13 +26,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.urlString = @"https://api.meetup.com/2/open_events.json?zip=60604&text=mobile&time=,1w&key=4d386b18732a5c314f6d5b4d4b7832";
     [self searchedTerm];
+    self.searchbBar.delegate = self;
     self.eventsArray = [NSMutableArray new];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    self.urlString = [NSString stringWithFormat:@"https://api.meetup.com/2/open_events.json?zip=60604&text=%@&time=,1w&key=4d386b18732a5c314f6d5b4d4b7832", searchBar.text];
+    self.eventsArray = [NSMutableArray new];
+    [self searchedTerm];
 }
 
 -(void)searchedTerm
 {
-    NSURL *url = [NSURL URLWithString:@"https://api.meetup.com/2/open_events.json?zip=60604&text=mobile&time=,1w&key=4d386b18732a5c314f6d5b4d4b7832"]; // URL of Meetup.com's API
+    NSURL *url = [NSURL URLWithString:self.urlString]; // URL of Meetup.com's API
 
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url]; //request from URL
 
@@ -63,11 +74,14 @@
              NSString *urlString = [eventDict objectForKey:@"event_url"];
              newEvent.url = urlString;
 
+             NSString *idString = [eventDict objectForKey:@"id"];
+             newEvent.eventID = idString;
+             NSLog(@"%@",newEvent.eventID);
+
              [self.eventsArray addObject:newEvent];
          }
          [self.tableView reloadData]; //reloadData to reload all tableView
      }];
-    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

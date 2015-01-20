@@ -16,5 +16,6 @@
 @property NSString *hostingInfo;
 @property NSString *eventDescription;
 @property NSString *url;
+@property NSString *eventID;
 
 @end
