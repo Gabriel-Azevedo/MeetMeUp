@@ -8,11 +8,14 @@
 
 #import "ViewController.h"
 #import "MeetUpEvent.h"
+#import "DetailViewController.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property NSArray *resultArray;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property NSIndexPath *selectedIndexPath;
+@property NSMutableArray *eventsArray;
 
 @end
 
@@ -22,6 +25,7 @@
 {
     [super viewDidLoad];
     [self searchedTerm];
+    self.eventsArray = [NSMutableArray new];
 }
 
 -(void)searchedTerm
@@ -34,6 +38,29 @@
      {
          NSDictionary *meetupDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil]; // Dict of JSON
          self.resultArray = [meetupDictionary objectForKey:@"results"]; // Array of JSON's Dict
+
+         for (NSDictionary *eventDict in self.resultArray) // for each event in resultsArray
+         {
+             MeetUpEvent *newEvent = [MeetUpEvent new]; // creating new event
+
+             NSString *nameString = [eventDict objectForKey:@"name"]; // search for name in newEvent's dict
+             newEvent.name = nameString;
+
+             NSDictionary *detailDict = [eventDict objectForKey:@"venue"]; //search for venue in newEvent's dict
+             NSString *detailString = [detailDict objectForKey:@"address_1"]; //take first address from venue
+             newEvent.address = detailString;
+
+             NSString *rsvpString = [eventDict objectForKey:@"yes_rsvp_count"];
+             newEvent.rsvpCount = rsvpString;
+
+             NSDictionary *groupDict = [eventDict objectForKey:@"group"];
+             NSString *groupString = [groupDict objectForKey:@"name"];
+             newEvent.hostingInfo = groupString;
+
+             [self.eventsArray addObject:newEvent];
+
+         }
+
          [self.tableView reloadData]; //reloadData to reload all tableView
      }];
     
@@ -43,17 +70,11 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"]; //reuse cell
 
-    MeetUpEvent *newEvent = [MeetUpEvent new]; // creating new event
-    newEvent.eventDictionary = [self.resultArray objectAtIndex:indexPath.row]; //assigning the whole dict to the new event
+    MeetUpEvent *currentEvent = [self.eventsArray objectAtIndex:indexPath.row]; // creating new event
 
-    NSString *nameString = [newEvent.eventDictionary objectForKey:@"name"]; // search for name in newEvent's dict
+    cell.detailTextLabel.text = currentEvent.address; //assign address to cell's details
 
-    NSDictionary *detailDict = [newEvent.eventDictionary objectForKey:@"venue"]; //search for venue in newEvent's dict
-    NSString *detailString = [detailDict objectForKey:@"address_1"]; //take first address from venue
-
-    cell.detailTextLabel.text = detailString; //assign address to cell's details
-
-    cell.textLabel.text = nameString; //assign name to cell's title
+    cell.textLabel.text = currentEvent.name; //assign name to cell's title
 
     return cell; // return cell
 }
@@ -62,5 +83,13 @@
 {
     return self.resultArray.count; //create cell for "x" numbers of events.
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    DetailViewController *detailVC = segue.destinationViewController;
+    self.selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    detailVC.event = [self.eventsArray objectAtIndex:self.selectedIndexPath.row];
+}
+
 
 @end

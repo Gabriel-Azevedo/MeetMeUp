@@ -15,6 +15,7 @@
 		23FEDB4A1A6DA9F4008EE28D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23FEDB481A6DA9F4008EE28D /* LaunchScreen.xib */; };
 		23FEDB561A6DA9F4008EE28D /* MeetMeUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FEDB551A6DA9F4008EE28D /* MeetMeUpTests.m */; };
 		23FEDB611A6DB8BA008EE28D /* MeetUpEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FEDB601A6DB8BA008EE28D /* MeetUpEvent.m */; };
+		23FEDB641A6DD661008EE28D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FEDB631A6DD661008EE28D /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		23FEDB551A6DA9F4008EE28D /* MeetMeUpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetMeUpTests.m; sourceTree = "<group>"; };
 		23FEDB5F1A6DB8BA008EE28D /* MeetUpEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetUpEvent.h; sourceTree = "<group>"; };
 		23FEDB601A6DB8BA008EE28D /* MeetUpEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetUpEvent.m; sourceTree = "<group>"; };
+		23FEDB621A6DD661008EE28D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		23FEDB631A6DD661008EE28D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 				23FEDB5F1A6DB8BA008EE28D /* MeetUpEvent.h */,
 				23FEDB601A6DB8BA008EE28D /* MeetUpEvent.m */,
 				23FEDB431A6DA9F4008EE28D /* Main.storyboard */,
+				23FEDB621A6DD661008EE28D /* DetailViewController.h */,
+				23FEDB631A6DD661008EE28D /* DetailViewController.m */,
 				23FEDB461A6DA9F4008EE28D /* Images.xcassets */,
 				23FEDB481A6DA9F4008EE28D /* LaunchScreen.xib */,
 				23FEDB391A6DA9F4008EE28D /* Supporting Files */,
@@ -224,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23FEDB641A6DD661008EE28D /* DetailViewController.m in Sources */,
 				23FEDB421A6DA9F4008EE28D /* ViewController.m in Sources */,
 				23FEDB3F1A6DA9F4008EE28D /* AppDelegate.m in Sources */,
 				23FEDB611A6DB8BA008EE28D /* MeetUpEvent.m in Sources */,

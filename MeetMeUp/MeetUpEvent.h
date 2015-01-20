@@ -10,6 +10,10 @@
 
 @interface MeetUpEvent : NSObject
 
-@property NSDictionary *eventDictionary;
+@property NSString *name;
+@property NSString *address;
+@property NSString *rsvpCount;
+@property NSString *hostingInfo;
+@property NSString *eventDescription;
 
 @end
