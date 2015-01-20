@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YpE-KA-JMN">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -119,8 +120,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlN-Y6-bwd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlN-Y6-bwd">
                                 <rect key="frame" x="104" y="518" width="113" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="113" id="5Rd-Gn-pL0"/>
+                                    <constraint firstAttribute="height" constant="30" id="Nfa-Nk-UiP"/>
+                                </constraints>
                                 <state key="normal" title="Go to Web Page">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -134,11 +139,13 @@
                             <constraint firstAttribute="centerX" secondItem="d2F-68-ekr" secondAttribute="centerX" id="2iY-4N-ymD"/>
                             <constraint firstItem="U11-d6-E4x" firstAttribute="top" secondItem="rzQ-k4-rm2" secondAttribute="bottom" constant="54" id="6ch-W6-BnK"/>
                             <constraint firstAttribute="centerX" secondItem="U11-d6-E4x" secondAttribute="centerX" id="6pb-gc-EQe"/>
+                            <constraint firstItem="FlN-Y6-bwd" firstAttribute="top" secondItem="NJY-Li-Kaq" secondAttribute="bottom" id="Akp-RI-n84"/>
                             <constraint firstAttribute="centerX" secondItem="bP9-h2-kjK" secondAttribute="centerX" id="Eln-tB-7Tp"/>
                             <constraint firstItem="NJY-Li-Kaq" firstAttribute="top" secondItem="bP9-h2-kjK" secondAttribute="bottom" constant="29" id="FZ9-3e-EzM"/>
                             <constraint firstItem="d2F-68-ekr" firstAttribute="top" secondItem="U11-d6-E4x" secondAttribute="bottom" constant="36" id="LS6-fF-PVB"/>
                             <constraint firstItem="bP9-h2-kjK" firstAttribute="top" secondItem="d2F-68-ekr" secondAttribute="bottom" constant="8" id="X9m-7M-auo"/>
                             <constraint firstAttribute="centerX" secondItem="NJY-Li-Kaq" secondAttribute="centerX" id="cRC-wo-49o"/>
+                            <constraint firstAttribute="centerX" secondItem="FlN-Y6-bwd" secondAttribute="centerX" id="yc5-UY-SVS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3dn-SE-Req"/>
@@ -169,17 +176,58 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ymn-Qw-fb7">
+                                <rect key="frame" x="142" y="265" width="37" height="37"/>
+                                <color key="color" red="0.86305390209999999" green="0.60522725330000005" blue="0.041150168559999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cU-uB-31t">
+                                <rect key="frame" x="16" y="518" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="g5O-jf-k3q"/>
+                                    <constraint firstAttribute="height" constant="30" id="yNk-9J-DaX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onBackButtonPressed:" destination="uko-tQ-xrc" eventType="touchUpInside" id="K6K-hI-Abr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTb-Hq-HX4">
+                                <rect key="frame" x="71" y="518" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="65k-nk-xki"/>
+                                    <constraint firstAttribute="height" constant="30" id="zMI-WQ-Fhk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" title="&gt;">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onForwardButtonPressed:" destination="uko-tQ-xrc" eventType="touchUpInside" id="y8k-gT-GjF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5Ug-hV-A6S" firstAttribute="leading" secondItem="Tzb-yk-FZC" secondAttribute="leading" id="2hZ-uQ-cBJ"/>
+                            <constraint firstItem="jiv-FH-Oke" firstAttribute="top" secondItem="sTb-Hq-HX4" secondAttribute="bottom" constant="20" id="6S9-6e-uEs"/>
                             <constraint firstItem="5Ug-hV-A6S" firstAttribute="top" secondItem="Tzb-yk-FZC" secondAttribute="top" id="ICx-vh-ML8"/>
+                            <constraint firstItem="9cU-uB-31t" firstAttribute="leading" secondItem="Tzb-yk-FZC" secondAttribute="leadingMargin" id="JqF-Ze-xpr"/>
+                            <constraint firstAttribute="centerY" secondItem="ymn-Qw-fb7" secondAttribute="centerY" id="VWL-E0-1qg"/>
                             <constraint firstAttribute="trailing" secondItem="5Ug-hV-A6S" secondAttribute="trailing" id="Yl7-xv-Z4Z"/>
+                            <constraint firstAttribute="centerX" secondItem="ymn-Qw-fb7" secondAttribute="centerX" id="kMK-Uv-xDD"/>
+                            <constraint firstItem="jiv-FH-Oke" firstAttribute="top" secondItem="9cU-uB-31t" secondAttribute="bottom" constant="20" id="mSO-GL-ATx"/>
+                            <constraint firstItem="sTb-Hq-HX4" firstAttribute="leading" secondItem="9cU-uB-31t" secondAttribute="trailing" constant="25" id="teN-Ho-SpN"/>
                             <constraint firstItem="jiv-FH-Oke" firstAttribute="top" secondItem="5Ug-hV-A6S" secondAttribute="bottom" id="xb8-EA-g3d"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aGA-HA-zX3"/>
                     <connections>
+                        <outlet property="spinner" destination="ymn-Qw-fb7" id="P2K-zN-N9D"/>
                         <outlet property="webView" destination="5Ug-hV-A6S" id="rEs-s7-Scd"/>
                     </connections>
                 </viewController>
